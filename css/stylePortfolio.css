@@ -1,0 +1,129 @@
+:root {
+  --light-green: #d2fbe9;
+  --red: #f66052;
+  --blue: #cdf2fb;
+  --light-blue: #d6f8fa;
+  --yellow: #ffc660;
+  --light-grey: #fbfbfb;
+  --mid-gray: #f8f8f8;
+  --dark-grey: #3b3b3d;
+  --black_s: #151a20;
+  --white: #ffffff;
+  --contrastblue: #0075d2;
+
+  /* Fonts */
+  --font-11: 0.6875rem;
+  --font-14: 0.875rem;
+  --font-16: 1rem;
+  --font-18: 1.125rem;
+  --font-88: 5.5rem;
+  --smaller-font-size: clamp(var(--default-font-size) * 0.5);
+  --default-font-size: clamp(0.8125rem, 0.775rem + 0.1875vw, 1rem);
+  --enlarged-font: calc(var(--default-font-size) * 1.25);
+  --line-height: clamp(
+    var(--smaller-font-size),
+    var(--default-font-size),
+    var(--enlarged-font)
+  );
+}
+
+body {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: var(--default-font-size);
+  line-height: var(--line-height);
+  font-weight: lighter;
+  color: var(--dark-grey);
+  margin: 1rem;
+  /* outline: #2af106 5px solid; */
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+
+  font-size: var(--default-font-size);
+  margin-left: 50%;
+  min-height: 5vh;
+  max-width: 50%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  /* outline: #44adac 5px solid; */
+}
+
+nav > span {
+  font-weight: bold;
+}
+
+a:link,
+a:visited {
+  color: var(--dark-grey);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--yellow);
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+#Container {
+  display: flex;
+  justify-content: space-around;
+  height: 90%;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(248, 248, 248, 1) 74%,
+    rgba(248, 248, 248, 1) 83%,
+    rgba(251, 251, 251, 1) 90%
+  );
+  box-shadow: 0px 5px 10px 0px rgba(59, 59, 61, 0.15),
+    0px -5px 10px 0px rgba(59, 59, 61, 0.15);
+}
+
+.Gallery_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .Gallery_block a
+{
+    text-decoration: underline;
+} */
+
+.Gallery_block :first-child {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Tablets (medium screens) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: var(--default-font-size);
+  }
+}
+
+/* Mobile devices (small screens) */
+@media (max-width: 600px) {
+  body {
+    font-size: var(--smaller-font-size);
+  }
+  nav {
+    margin-left: 30%;
+    max-width: 70%;
+  }
+}

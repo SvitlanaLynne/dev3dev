@@ -1,0 +1,4 @@
+Built with: Electron
+This project on GitHub: https://github.com/SvitlanaLynne/MusicCollection
+Video Converter is a versatile application that allows users to load, play, and convert video files into three different formats. Throughout the development process, I gained familiarity with the powerful features of the Electron framework, and I was particularly focused on exploring its potential for creating applications that can be used by both Windows and macOS users.
+While building the application, I faced some challenges in setting up communication between the main, renderer, and menu files. However, I found it incredibly satisfying when everything began working as intended, and this experience has fueled my interest in exploring the Electron framework further.

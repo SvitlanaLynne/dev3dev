@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="full-stack, developer, programmer, front-end, back-end, Svitlana, Lynne, 3d, 3d modeling, modeler"
+    />
+    <meta
+      name="description"
+      content="Webpage of the Full-Stack Developer and 3D modeler"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@300;500;600&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Home_page</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script
+      type="text/javascript"
+      src="../scripts/script_read_more.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- ----- LANDING PAGE ----- -->
+    <section id="homePage__container">
+      <nav>
+        <span>Svitlana Lynne</span>
+        <a href="../pages/portfolio.html">Portfolio</a>
+        <a href="../pages/contactMe.html">Contact me</a>
+      </nav>
+      <div id="banner_group">
+        <div id="gifContainer">
+          <div id="Title">
+            <span
+              >Full-Stack<br />
+              Developer</span
+            >
+            <span>&</span>
+            <span
+              >Digital<br />
+              Artist</span
+            >
+          </div>
+          <div id="gifImage"></div>
+        </div>
+        <div class="Quotes">
+          <span
+            >"I like the dreams of the future better than the history of the
+            past."</span
+          >
+          <span>Thomas Jefferson</span>
+        </div>
+      </div>
+      <div>
+        <a class="button" href="../pages/contactMe.html">Contact me</a>
+        <div id="arrow__container">
+          <div class="arrow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----- ABOUT ME ----- -->
+    <section id="aboutMe__container">
+      <div id="About_title">
+        <span class="section_title"
+          >a little bit<span class="large_text">About</span>me</span
+        >
+      </div>
+      <div id="about_main">
+        <img src="/images/Svetlana_Lynne.png" alt="Svitlana_Lynne_photo" />
+        <div id="about_block">
+          <div id="prof_person_block">
+            <div>
+              <span class="bold_font">As a professional,</span>
+              <ul>
+                <li>I maintain a stable level of quality</li>
+                <li>Come up with design and improvement suggestions</li>
+                <li>Pay attention to details and verify tasks carefully</li>
+                <li>Strive to the long-term cooperation</li>
+                <li>
+                  Enjoy working within both: coding and 3d modeling environment
+                </li>
+              </ul>
+            </div>
+
+            <div id="person">
+              <span class="bold_font">As a person,</span>
+              <ul>
+                <li>
+                  I am an easy-going person, who is able to collaborate with a
+                  team as well as work independently
+                </li>
+                <li>Plan and prioritize my tasks</li>
+                <li>
+                  Using my coding skills, dream to bring the best of reality
+                  into the digital world and vice versa!
+                </li>
+                <li>
+                  <a href="https://youtu.be/PLwDepuWoJ8" target="_blank"
+                    >My video reel on YouTube</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- --- Testimonials --- -->
+      <div id="testimonials">
+        <span>What my employers and clients say:</span>
+        <div id="testimonials_block">
+          <div id="testimonial_1">
+            <p id="firstWords1"></p>
+            <p id="testimonialContent1"></p>
+            <button id="readMoreButton1" onclick="readMore(1)">
+              Read More
+            </button>
+            <span>Alexander Keilmann, Owner "Sandro Verardi"</span>
+          </div>
+          <div id="testimonial_2">
+            <p id="firstWords2"></p>
+            <p id="testimonialContent2"></p>
+            <button id="readMoreButton2" onclick="readMore(2)">
+              Read More
+            </button>
+            <span>Jared Blanton, Director "Wayland Makes"</span>
+          </div>
+          <div id="testimonial_3">
+            <p id="firstWords3"></p>
+            <p id="testimonialContent3"></p>
+            <button id="readMoreButton3" onclick="readMore(3)">
+              Read More
+            </button>
+            <span>Natalia Mashe, Director "Candy Factory"</span>
+          </div>
+        </div>
+      </div>
+      <!-- --- Education --- -->
+      <div id="about_education">
+        <span
+          >Another dreamer...
+          <span class="bold_font">with the background in:</span>
+        </span>
+
+        <div id="education_container">
+          <div class="education_block">
+            <span>Nova Scotia Community Colledge</span>
+            <span>Full-Stack Development</span>
+            <p>
+              front and back-end programming,<br />OS and networks, databases
+            </p>
+            <p>Halifax, Canada - 2023</p>
+          </div>
+
+          <div class="education_block">
+            <span>Courses, Kiev, Ukraine</span>
+            <span>3D Modeling</span>
+            <p>3d modeling and visualization,<br />interior design, painting</p>
+            <p>Kyiv, Ukraine - 2010</p>
+          </div>
+
+          <div class="education_block">
+            <span>National Aviation University</span>
+            <span>Management of foreign economic activity</span>
+            <p>
+              Management, mathematics, economics, logistics,<br />marketing,
+              foreign languages
+            </p>
+            <p>Kyiv, Ukraine - 2006</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----- MY SKILLS ----- -->
+    <section id="mySkills__container">
+      <span class="section_title"
+        >briefly about my
+        <span class="large_text">Skills</span>
+      </span>
+      <img
+        src="/images/programming_3d_illustration.png"
+        alt="illustration_programming_and_modeling"
+      />
+      <div id="skills_block">
+        <div class="skills">
+          <span>with these skills</span>
+          <ul class="inlineList">
+            <li>React</li>
+            <li>JavaScript</li>
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>Html</li>
+            <li>Css</li>
+            <li>SQLite</li>
+            <li>MongoDB</li>
+          </ul>
+          <span>I build web applications, webpages and manage databases</span>
+        </div>
+        <div class="skills">
+          <span>with these skills</span>
+          <ul class="inlineList">
+            <li>3ds Max</li>
+            <li>Zbrush</li>
+            <li>Maya</li>
+            <li>Magics</li>
+            <li>Substance Painter</li>
+            <li>Arnold/Vray</li>
+            <li>Photoshop</li>
+            <li>CorelDraw</li>
+            <li>Freehand drawing</li>
+          </ul>
+          <span
+            >I model 3D objects for further visualization or prototyping</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="contactMe_container">
+      <aside class="Quotes">
+        <span
+          >"A dream you dream alone is only a dream. A dream you dream together
+          is reality."</span
+        >
+        <span>Yoko Ono</span>
+      </aside>
+
+      <span>Let's work as a team!</span>
+
+      <a class="button" href="../pages/contactMe.html">Contact me</a>
+    </section>
+  </body>
+</html>
