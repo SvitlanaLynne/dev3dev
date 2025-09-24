@@ -1,0 +1,1 @@
+https://teams.microsoft.com/l/meetup-join/19%3ameeting_YOUR_UNIQUE_ID%40thread.v2/0?context=%7b%22Tid%22%3a%22YOUR_TENANT_ID%22%2c%22Oid%22%3a%22YOUR_USER_ID%22%7d
