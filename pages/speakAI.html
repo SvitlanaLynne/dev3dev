@@ -27,156 +27,132 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hind:wght@300;500;600&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@300;500;600&family=PT+Sans:wght@400;700&family=Open+Sans:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
     <title>SpeakAI</title>
     <link rel="stylesheet" href="../css/styleSpeakAI.css" />
   </head>
   <body>
-    <div id="homePage__container">
-      <!-- NAV -->
-      <nav>
-        <span>Welcome!</span>
-        <span><b>Join</b> [on Fridays 8:00 am] <b>here</b>:</span>
-        <a id="meetingLink" href="#" target="_blank"></a>
-      </nav>
-
-      <!-- TITLE -->
-      <section id="SpeakAI_Title">
-        <span>Speak AI</span>
-        <span>Sessions</span>
-        <span>Here we practice Impromptu speaking about AI</span>
-      </section>
-
-      <!-- QUOTES / INTRO -->
-      <section class="Quotes">
-        <span>Knowledge results from the combination of grasping and transforming experience</span>
-        <span>David Kolb</span>
-      </section>
-
-<!-- GLASS CARD WITH IMAGE BACKGROUND -->
-<div class="glass-card-wrapper">
-  <section class="glass-card">
-    <h1 class="title">Research Time...</h1>
-    <div class="separator-line"></div>
-    <div class="countdown-display">
-      <span class="time-unit" id="hours">00</span>
-      <span class="separator">:</span>
-      <span class="time-unit" id="minutes">30</span>
-      <span class="separator">:</span>
-      <span class="time-unit" id="seconds">00</span>
-    </div>
-    <div class="labels">
-      <span class="label">HRS</span>
-      <span class="label">MINS</span>
-      <span class="label">SECS</span>
-    </div>
-    <div id="container_btns">
-      <div class="button" id="toggleBtn">Reset</div>
-    </div>
-  </section>
-</div>
-
-</div>
-      <!-- DETAILS -->
-      <section class="details_container">
-        <span>Details</span>
-        <div class="ai-session">
-          <p class="section-text">
-            I invite you to join my online learning sessions where we explore
-            and speak AI together.
-          </p>
-
-          <p class="section-title">Format (50 min Online Meeting):</p>
-          <ul class="section-list">
-            <li>
-              <em>Research quietly (30 min):</em> Everyone explores any aspect
-              of AI individually — come up with your own topic.
-            </li>
-            <li>
-              <em>Share findings (20 min):</em> Everyone briefly shares just
-              <strong>1 surprising fact</strong> or
-              <strong>1 real-life use</strong>, speaking for only 3 minutes.
-            </li>
-          </ul>
-
-          <p class="section-title">What to expect:</p>
-          <ul class="section-list">
-            <li>
-              A shared learning space — not a networking event — about learning
-              side by side.
-            </li>
-            <li>
-              A drop-in session — not a formal club — with no membership or
-              booking required. Like a library, you can come and go freely.
-            </li>
-            <li>
-              A peer-to-peer exchange — not a lecture — where I'm learning and
-              speaking alongside you so we can explore AI more effectively and
-              enjoyably together.
-            </li>
-            <p class="inline-quote">Think of it as a group run on Halifax boardwalk...</p>
-          </ul>
-      </section>
-           
-      <section class="why_join_container">
-                  <p class="section-title">Why join:</p>
-          <ul class="section-list">
-            <li>
-              Make time to explore AI — tools, news, basics, history, or
-              hands-on practice building Agents. This session reserves that time
-              for your self-development each week.
-            </li>
-            <li>
-              Practice speaking about AI through short retelling. While solo or
-              'anytime' online learning remains primary, here we focus on
-              impromptu speaking and real-world thinking on our feet.
-            </li>
-            <li>
-              Listen to others — you may be surprised by how differently AI can
-              be used or perceived.
-            </li>
-            <li>
-              Share ideas — including practical tools for productivity,
-              business, investment, or self-development.
-            </li>
-            <li>
-              Practice researching and presenting under time limits — a valuable
-              skill in itself.
-            </li>
-            <li>Apply discoveries directly to real-life tasks and projects.</li>
-          </ul>
-
-          <p class="section-text">
-            I'm exploring AI myself and felt the experience could be richer if
-            we practiced together. <em>Let's speak AI!</em>
-          </p>
-
-          <p class="section-title">Ways to join:</p>
-          <p class="section-text">
-            Microsoft Teams link is provided at the top of this page.
-          </p>
+    <div id="homePage">
+      <!-- MEETING LINK -->
+      <section class="section meeting">
+        <span class="welcome">Welcome!</span>
+        <div class="join-row">
+          <span
+            ><span class="bold">Join</span> [Fridays 8:00 am]
+            <span class="bold">here</span>:</span
+          >
+          <a class="meeting-link" href="#" target="_blank">Meeting Link</a>
         </div>
       </section>
 
-      <div class="Quotes">
-        <span>"Knowledge lives in communities of practice."</span>
-        <span>Etienne Wenger</span>
-      </div>
+      <!-- TITLE -->
+      <section class="section title">
+        <h1>Speak AI</h1>
+        <h2>Sessions</h2>
+        <p>Here we practice impromptu speaking about AI</p>
+      </section>
+
+      <!-- QUOTE -->
+      <section class="section quote">
+        <p>
+          "Knowledge results from the combination of grasping and transforming
+          experience.""
+        </p>
+        <cite>— David Kolb</cite>
+      </section>
+
+      <!-- GLASS CARD -->
+      <section class="section glass-card-wrapper">
+        <div class="glass-card">
+          <h2 class="card-title">Research Time...</h2>
+          <div class="separator-line"></div>
+          <div class="countdown-display">
+            <span class="time-unit" id="hours">00</span>
+            <span class="separator">:</span>
+            <span class="time-unit" id="minutes">30</span>
+            <span class="separator">:</span>
+            <span class="time-unit" id="seconds">00</span>
+          </div>
+          <div class="labels">
+            <span class="label">HRS</span>
+            <span class="label">MINS</span>
+            <span class="label">SECS</span>
+          </div>
+          <div class="btn-container">
+            <div class="button" id="toggleBtn">Reset</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DETAILS -->
+      <section class="section content details">
+
+        <span class="section_title">a few<span class="large_text">Details</span>
+        <p class="section-text">
+          I invite you to join my online learning sessions where we explore and
+          speak AI together.
+        </p>
+
+        <h2>Format (50 min Online Meeting):</h2>
+        <ul class="section-list">
+          <li>
+            <em>Research quietly (30 min):</em> Everyone explores any aspect of
+            AI individually — come up with your own topic.
+          </li>
+          <li>
+            <em>Share findings (20 min):</em> Everyone briefly shares just
+            <strong>1 surprising fact</strong> or
+            <strong>1 real-life use</strong>.
+          </li>
+        </ul>
+
+        <h2>What to expect:</h2>
+        <ul class="section-list">
+          <li>A shared learning space — not a networking event.</li>
+          <li>A drop-in session — no membership or booking required.</li>
+          <li>
+            A peer-to-peer exchange — not a lecture — where we learn together.
+          </li>
+        </ul>
+        <p class="inline-quote">
+          Think of it as a group run on Halifax boardwalk...
+        </p>
+      </section>
+
+      <!-- WHY JOIN -->
+      <section class="section content why-join">
+        <h2>Why Join</h2>
+        <ul class="section-list">
+          <li>
+            Make time to explore AI tools, news, basics, history, or practice.
+          </li>
+          <li>Practice impromptu speaking about AI.</li>
+          <li>Listen to diverse perspectives.</li>
+          <li>Share practical tools and ideas.</li>
+          <li>Practice presenting under time limits.</li>
+          <li>Apply discoveries to real-life projects.</li>
+        </ul>
+        <p class="section-text">
+          I'm exploring AI myself and felt the experience could be richer if we
+          practiced together. <em>Let's speak AI!</em>
+        </p>
+      </section>
+
+      <!-- SECOND QUOTE -->
+      <section class="section quote">
+        <p>"Knowledge lives in communities of practice."</p>
+        <cite>— Etienne Wenger</cite>
+      </section>
 
       <!-- CONTACT -->
-      <section id="contactMe_container">
-        <span>Contact</span>
-        <aside>
-          <p>Email: svetlanalynne@gmail.com</p>
-        </aside>
+      <section class="section contact">
+        <h2>Contact</h2>
+        <p>
+          Email:
+          <a href="mailto:svetlanalynne@gmail.com">svetlanalynne@gmail.com</a>
+        </p>
       </section>
     </div>
     <script type="module" src="../scripts/meetingLink.js"></script>
