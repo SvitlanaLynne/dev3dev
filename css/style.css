@@ -80,7 +80,7 @@ a:hover {
   justify-content: space-between;
   height: 100vh;
   box-shadow: 0px 5px 10px 0px rgba(59, 59, 61, 0.15);
-  /* outline: 2px solid rgb(0, 26, 255); */
+  outline: 2px solid rgb(0, 26, 255);
 }
 nav {
   display: flex;

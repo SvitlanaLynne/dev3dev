@@ -1,94 +1,149 @@
-// /src/countdown.js
+let countdownInterval;
+let remainingSeconds = 0;
+let isRunning = false;
+let totalDuration = 0;
 
-let activeTimer = null;
-const CHECK_INTERVAL = 60_000;
-const COUNTDOWN_DURATION = 30 * 60 * 1000;
-
-// Cache DOM elements
+const glassCard = document.querySelector(".glass-card");
 const hoursEl = document.getElementById("hours");
-const minsEl = document.getElementById("minutes");
-const secsEl = document.getElementById("seconds");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
+const tabs = document.querySelectorAll(".tab");
 const toggleBtn = document.getElementById("toggleBtn");
+const titleEl = document.querySelector(".glass-card h2");
 
-// --- Utility functions ---
-function getNextFridayAt8AM() {
-  const now = new Date();
-  const nextFriday = new Date(now);
-  const daysUntilFriday = (5 - now.getDay() + 7) % 7;
-  nextFriday.setDate(now.getDate() + daysUntilFriday);
-  nextFriday.setHours(8, 0, 0, 0);
-
-  if (nextFriday <= now) {
-    nextFriday.setDate(nextFriday.getDate() + 7);
-  }
-  return nextFriday;
+function formatTime(num) {
+  return num.toString().padStart(2, "0");
 }
 
-function updateDisplay(hrs, mins, secs) {
-  hoursEl.textContent = String(hrs).padStart(2, "0");
-  minsEl.textContent = String(mins).padStart(2, "0");
-  secsEl.textContent = String(secs).padStart(2, "0");
+function updateDisplay() {
+  const hrs = Math.floor(remainingSeconds / 3600);
+  const mins = Math.floor((remainingSeconds % 3600) / 60);
+  const secs = remainingSeconds % 60;
+
+  hoursEl.textContent = formatTime(hrs);
+  minutesEl.textContent = formatTime(mins);
+  secondsEl.textContent = formatTime(secs);
 }
 
-function clearDisplay() {
-  updateDisplay(0, 30, 0);
-}
+function startCountdown() {
+  clearInterval(countdownInterval);
+  updateDisplay();
+  totalDuration = remainingSeconds;
 
-// --- Countdown logic ---
-function startCountdown(durationMs) {
-  if (activeTimer) clearInterval(activeTimer);
-
-  const endTime = Date.now() + durationMs;
-
-  activeTimer = setInterval(() => {
-    const remaining = endTime - Date.now();
-
-    if (remaining <= 0) {
-      clearInterval(activeTimer);
-      activeTimer = null;
-      clearDisplay();
+  countdownInterval = setInterval(() => {
+    if (remainingSeconds > 0) {
+      remainingSeconds--;
+      updateDisplay();
+    } else {
+      clearInterval(countdownInterval);
+      isRunning = false;
       toggleBtn.textContent = "Reset";
-      return;
     }
-
-    const totalSeconds = Math.floor(remaining / 1000);
-    const hrs = Math.floor(totalSeconds / 3600);
-    const mins = Math.floor((totalSeconds % 3600) / 60);
-    const secs = totalSeconds % 60;
-
-    updateDisplay(hrs, mins, secs);
   }, 1000);
 }
 
-function checkAndRunTimer() {
-  if (activeTimer) return;
+function scheduleColorChanges(duration) {
+  // Reset to default immediately
+  glassCard.style.background = "rgba(255, 255, 255, 0.15)";
 
-  const now = new Date();
-  const target = getNextFridayAt8AM();
-  const diff = now - target;
+  // 75% elapsed → orange
+  setTimeout(() => {
+    glassCard.style.background = "rgba(245, 167, 33, 0.5)";
+  }, duration * 1000 * 0.75);
 
-  if (diff >= 0 && diff < COUNTDOWN_DURATION) {
-    const remaining = COUNTDOWN_DURATION - diff;
-    startCountdown(remaining);
-    toggleBtn.textContent = "Stop";
-  } else {
-    setTimeout(checkAndRunTimer, CHECK_INTERVAL);
-  }
+  // 100% elapsed → red
+  setTimeout(() => {
+    glassCard.style.background = "rgba(246, 96, 82, 0.5)";
+  }, duration * 1000);
 }
 
-// --- Event listener (toggle logic) ---
+function setDuration(seconds) {
+  clearInterval(countdownInterval);
+  remainingSeconds = seconds;
+  updateDisplay();
+  isRunning = false;
+  toggleBtn.textContent = "Start";
+
+  scheduleColorChanges(seconds);
+}
+
+// Handle tab switching
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    const duration = parseInt(tab.dataset.duration, 10);
+    setDuration(duration);
+
+    if (duration === 1800) titleEl.textContent = "Research Time...";
+    else if (duration === 180) titleEl.textContent = "Speaking Time...";
+  });
+});
+
+// Handle button behavior
 toggleBtn.addEventListener("click", () => {
-  if (activeTimer) {
-    clearInterval(activeTimer);
-    activeTimer = null;
-    clearDisplay();
-    toggleBtn.textContent = "Reset";
-  } else {
-    startCountdown(COUNTDOWN_DURATION);
+  if (!isRunning && toggleBtn.textContent === "Start") {
+    isRunning = true;
     toggleBtn.textContent = "Stop";
+    startCountdown();
+  } else if (isRunning) {
+    isRunning = false;
+    clearInterval(countdownInterval);
+    toggleBtn.textContent = "Start";
+  } else {
+    const activeTab = document.querySelector(".tab.active");
+    const duration = parseInt(activeTab.dataset.duration, 10);
+    setDuration(duration);
   }
 });
 
-// --- Init ---
-toggleBtn.textContent = "Reset";
-checkAndRunTimer();
+// Initialize countdown with first active tab
+const initialTab = document.querySelector(".tab.active");
+if (initialTab) {
+  setDuration(parseInt(initialTab.dataset.duration, 10));
+}
+
+// Auto-start Fridays at 8 AM
+function scheduleFridayCountdown() {
+  const now = new Date();
+  const day = now.getDay(); // 0 = Sunday, 5 = Friday
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  let daysUntilFriday = (5 - day + 7) % 7;
+  if (
+    daysUntilFriday === 0 &&
+    (hours > 8 || (hours === 8 && (minutes > 0 || seconds > 0)))
+  ) {
+    daysUntilFriday = 7;
+  }
+
+  const nextFriday8AM = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() + daysUntilFriday,
+    8,
+    0,
+    0,
+    0
+  );
+
+  const delay = nextFriday8AM - now;
+
+  setTimeout(() => {
+    const researchTab = document.querySelector('.tab[data-duration="1800"]');
+    if (researchTab) researchTab.click();
+
+    if (!isRunning) {
+      isRunning = true;
+      toggleBtn.textContent = "Stop";
+      startCountdown();
+    }
+
+    scheduleFridayCountdown();
+  }, delay);
+}
+
+scheduleFridayCountdown();

@@ -34,23 +34,24 @@
     <link rel="stylesheet" href="../css/styleSpeakAI.css" />
   </head>
   <body>
-    <div id="homePage">
-      <!-- MEETING LINK -->
-      <section class="section meeting">
-        <span class="welcome">Welcome!</span>
-        <div class="join-row">
-          <span
-            ><span class="bold">Join</span> [Fridays 8:00 am]
-            <span class="bold">here</span>:</span
-          >
-          <a class="meeting-link" href="#" target="_blank">Meeting Link</a>
-        </div>
-      </section>
 
+    <div id="landPage">
+        <!-- MEETING LINK -->
+      <section class="section meeting">
+    <div class="meeting-header">
+      <a id="backHome" href="index.html">Back to Home</a>
+      <h3>Welcome!</h3>
+    </div>
+    <div class="join-row">
+      <span><span class="bold">Join</span>&nbsp;&nbsp;[Fridays 8:00 am]&nbsp;&nbsp;<span class="bold">here</span>:</span>
+      <a id="meetingLink" href="#" target="_blank"></a>
+    </div>
+      </section>
       <!-- TITLE -->
       <section class="section title">
-        <h1>Speak AI</h1>
-        <h2>Sessions</h2>
+        <img src="../images/speakAI_bg.png" alt="SpeakAI background PNG" />
+        <h1 class="TitleText">Speak AI</h1>
+        <h3 class="large_text">Sessions</h3>
         <p>Here we practice impromptu speaking about AI</p>
       </section>
 
@@ -58,53 +59,67 @@
       <section class="section quote">
         <p>
           "Knowledge results from the combination of grasping and transforming
-          experience.""
+          experience."
         </p>
-        <cite>— David Kolb</cite>
+        <span>— David Kolb</span>
       </section>
 
       <!-- GLASS CARD -->
-      <section class="section glass-card-wrapper">
+      <section class="glass-card-wrapper">
         <div class="glass-card">
-          <h2 class="card-title">Research Time...</h2>
+          <div class="large_text">Research Time...</div>
+          
+          <!-- Tabs -->
+          <ul class="tabs">
+            <li class="tab active" data-duration="1800">30 Min</li>
+            <li class="tab" data-duration="180">3 Min</li>
+          </ul>
+          
           <div class="separator-line"></div>
-          <div class="countdown-display">
-            <span class="time-unit" id="hours">00</span>
-            <span class="separator">:</span>
-            <span class="time-unit" id="minutes">30</span>
-            <span class="separator">:</span>
-            <span class="time-unit" id="seconds">00</span>
+          <div class="countdown-container">
+            <div class="time-block">
+              <span class="time-number" id="hours">00</span>
+              <span class="label">HRS</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-block">
+              <span class="time-number" id="minutes">30</span>
+              <span class="label">MINS</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-block">
+              <span class="time-number" id="seconds">00</span>
+              <span class="label">SECS</span>
+            </div>
           </div>
-          <div class="labels">
-            <span class="label">HRS</span>
-            <span class="label">MINS</span>
-            <span class="label">SECS</span>
-          </div>
+
           <div class="btn-container">
             <div class="button" id="toggleBtn">Reset</div>
           </div>
         </div>
       </section>
-
+    </div>
       <!-- DETAILS -->
       <section class="section content details">
-
-        <span class="section_title">a few<span class="large_text">Details</span>
-        <p class="section-text">
-          I invite you to join my online learning sessions where we explore and
-          speak AI together.
-        </p>
+        <div id="centered_details">
+          <span>a few<span class="large_text">Details</span>
+          <p class="section-text">
+            I invite you to join my online learning sessions where we explore and
+            speak AI together.
+          </p>
+        </div>
 
         <h2>Format (50 min Online Meeting):</h2>
         <ul class="section-list">
           <li>
-            <em>Research quietly (30 min):</em> Everyone explores any aspect of
-            AI individually — come up with your own topic.
+            <span class="bold">Research quietly (30 min):</span>
+  Everyone explores any aspect of AI individually — come up with your own topic.
           </li>
           <li>
-            <em>Share findings (20 min):</em> Everyone briefly shares just
+            <span class="bold">Share findings (20 min):</span> Everyone briefly (3 min) shares just
             <strong>1 surprising fact</strong> or
             <strong>1 real-life use</strong>.
+</li>
           </li>
         </ul>
 
@@ -136,25 +151,26 @@
         </ul>
         <p class="section-text">
           I'm exploring AI myself and felt the experience could be richer if we
-          practiced together. <em>Let's speak AI!</em>
+          practiced together.
         </p>
+        <span class="bold">Let's speak AI!</span>
       </section>
 
       <!-- SECOND QUOTE -->
       <section class="section quote">
         <p>"Knowledge lives in communities of practice."</p>
-        <cite>— Etienne Wenger</cite>
+        <span>— Etienne Wenger</span>
       </section>
 
       <!-- CONTACT -->
       <section class="section contact">
-        <h2>Contact</h2>
+        <strong>Please, contact me for help if you experience any issues joining.</strong>
         <p>
           Email:
           <a href="mailto:svetlanalynne@gmail.com">svetlanalynne@gmail.com</a>
         </p>
       </section>
-    </div>
+
     <script type="module" src="../scripts/meetingLink.js"></script>
     <script type="module" src="../scripts/countdown.js"></script>
   </body>
