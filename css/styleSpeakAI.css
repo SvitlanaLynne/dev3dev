@@ -91,6 +91,9 @@ a:hover {
   font-weight: bolder;
   text-decoration: underline;
   text-align: start;
+  overflow-wrap: anywhere;
+  word-break: break-word; /* fallback */
+  white-space: normal;
 }
 
 #meetingLink:hover {
@@ -351,4 +354,86 @@ a:hover {
 
   margin-top: 2%;
   margin-bottom: 2%;
+}
+
+/* Laptops and Desktops (large screens) */
+@media (min-width: 1025px) {
+  body {
+    font-size: var(--default-font-size);
+  }
+
+  .glass-card {
+    margin: 2rem auto;
+  }
+
+  .tabs,
+  .separator-line {
+    width: 40%;
+  }
+
+  .countdown-container {
+    gap: 3rem;
+  }
+}
+
+/* Tablets (medium screens) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: var(--default-font-size);
+  }
+
+  .glass-card {
+    margin: 1.5rem auto;
+  }
+
+  .tabs,
+  .separator-line {
+    width: 60%;
+  }
+
+  .countdown-container {
+    gap: 2rem;
+  }
+}
+
+/* Mobile devices (small screens) */
+@media (max-width: 600px) {
+  body {
+    font-size: var(--smaller-font-size);
+  }
+
+  #meetingLink {
+    text-align: center;
+    display: block;
+  }
+  .title h1 {
+    font-size: calc(var(--default-font-size) * 2.5);
+  }
+
+  .title img {
+    height: 100%;
+  }
+
+  .glass-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .tabs,
+  .separator-line {
+    width: 90%;
+  }
+
+  .countdown-container {
+    gap: 1rem;
+  }
+
+  .time-number,
+  .separator {
+    font-size: calc(var(--default-font-size) * 3);
+  }
+
+  .button {
+    width: 100%;
+    max-width: 200px;
+  }
 }

@@ -80,7 +80,7 @@ a:hover {
   justify-content: space-between;
   height: 100vh;
   box-shadow: 0px 5px 10px 0px rgba(59, 59, 61, 0.15);
-  outline: 2px solid rgb(0, 26, 255);
+  /* outline: 2px solid rgb(0, 26, 255); */
 }
 nav {
   display: flex;
@@ -90,7 +90,7 @@ nav {
   text-align: center;
 
   height: fit-content;
-  margin: calc(var(--default-font-size) * 0.5);
+  margin: calc(var(--default-font-size) * 0.75);
 
   /* outline: #5492a4 6px solid; */
 }
@@ -195,8 +195,8 @@ nav > span {
 #aboutMe__container {
   display: flex;
   flex-direction: column;
-
-  margin-top: 1%;
+  /* height: 100vh; */
+  /* margin-top: 1%; */
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5%;
@@ -212,10 +212,30 @@ nav > span {
 #About_title {
   display: flex;
   justify-content: center;
-
   grid-column: 1 / 4;
-
   margin-top: 1rem;
+  /* outline: #dc21f5 solid 3px; */
+}
+#about_intro {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  max-width: 90%;
+  margin: 0 auto 1.5rem auto;
+  text-align: left;
+}
+
+#about_intro aside {
+  display: block;
+  font-weight: bold;
+  font-size: var(--default-font-size);
+  margin: 1rem 0;
+}
+
+#about_intro p {
+  /* margin: 1rem 0 2rem 0; */
+  margin-bottom: 1rem;
+  /* outline: #bad521 solid 3px; */
 }
 
 #about_main {
@@ -235,32 +255,36 @@ nav > span {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 0 1rem;
+  margin: 0 2rem;
+  /* outline: #f57621 solid 3px; */
 }
 
 #prof_person_block {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   /* outline: #f66052 5px solid; */
 }
+
 #testimonials {
   display: flex;
   flex-direction: column;
   flex-grow: 0;
+  font-size: calc(0.875 * var(--default-font-size));
   line-height: 2rem;
   width: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 5rem;
   /* outline: #f57621 solid 3px; */
 }
 
 #testimonials > span {
   font-style: normal;
   font-weight: lighter;
+
   font-size: var(--enlarged-font);
-  margin-bottom: 2rem;
+  /* line-height: 2.5rem; */
   color: var(--deep-yellow);
+  margin-bottom: 2rem;
 }
 
 #testimonials_block {
@@ -271,9 +295,18 @@ nav > span {
   margin: 0 5%;
   /* outline: #acabfd solid 3px; */
 }
+/* .separator-line {
+  width: clamp(30%, 40%, 50%);
+  height: 1px;
+  margin: 0 auto;
+  background: var(--yellow);
+  margin-bottom: 1rem;
+} */
+
 #testimonials_block > * {
   display: flex;
   flex-direction: column;
+  text-align: center;
   max-width: 400px;
 }
 
@@ -301,43 +334,59 @@ nav > span {
   font-style: italic;
 }
 [id*="testimonial"] > span {
+  display: block;
+  margin: auto;
+  font-style: normal;
   font-weight: bold;
 }
 
 #about_education {
   grid-column: 1 / 4;
-
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  row-gap: 1rem;
 }
 
-#about_education > span {
-  margin-left: 1rem;
-  margin-bottom: 1%;
+#education_wrapper {
+  background: var(--gradient_grey);
+  padding: 1rem;
+  display: grid;
+  row-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* outline: #9152f6 4px solid; */
+}
+#education_intro {
+  grid-column: 1 / 4;
+  font-size: var(--default-font-size);
+  margin-bottom: 0.5rem;
+  display: inline-block;
 }
 
 #education_container {
-  display: flex;
-  justify-content: space-around;
-  background: var(--gradient_grey);
+  display: contents;
 }
 
 .education_block {
   display: flex;
   flex-direction: column;
-  margin: 5%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem;
 }
 
 .education_block :nth-child(1) {
   align-self: center;
+  text-align: center;
   color: var(--dark-blue);
   margin-bottom: 0.5rem;
   z-index: 2;
+  /* outline: #5492a4 1px solid; */
 }
 
 .education_block :nth-child(2) {
   font-weight: bold;
   align-self: center;
+  text-align: center;
+  /* outline: #5492a4 1px solid; */
 }
 
 .education_block p {
@@ -374,7 +423,9 @@ nav > span {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;
-  margin: 10% 5%;
+  gap: 20%;
+  margin: 2rem 2rem;
+  /* outline: #101010 6px solid; */
 }
 
 /* CONTACT ME */

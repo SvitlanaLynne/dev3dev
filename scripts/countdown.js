@@ -30,6 +30,8 @@ function startCountdown() {
   updateDisplay();
   totalDuration = remainingSeconds;
 
+  scheduleColorChanges(totalDuration);
+
   countdownInterval = setInterval(() => {
     if (remainingSeconds > 0) {
       remainingSeconds--;
@@ -63,8 +65,6 @@ function setDuration(seconds) {
   updateDisplay();
   isRunning = false;
   toggleBtn.textContent = "Start";
-
-  scheduleColorChanges(seconds);
 }
 
 // Handle tab switching
