@@ -2,6 +2,7 @@ let countdownInterval;
 let remainingSeconds = 0;
 let isRunning = false;
 let totalDuration = 0;
+let colorTimeouts = [];
 
 const glassCard = document.querySelector(".glass-card");
 const hoursEl = document.getElementById("hours");
@@ -9,7 +10,7 @@ const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
 const tabs = document.querySelectorAll(".tab");
 const toggleBtn = document.getElementById("toggleBtn");
-const titleEl = document.querySelector(".glass-card h2");
+const titleEl = document.querySelector(".glass-card .large_text");
 
 function formatTime(num) {
   return num.toString().padStart(2, "0");
@@ -45,18 +46,29 @@ function startCountdown() {
 }
 
 function scheduleColorChanges(duration) {
-  // Reset to default immediately
+  // Clear previous timeouts
+  colorTimeouts.forEach(clearTimeout);
+  colorTimeouts = [];
+
+  // Reset immediately
   glassCard.style.background = "rgba(255, 255, 255, 0.15)";
 
-  // 75% elapsed → orange
-  setTimeout(() => {
-    glassCard.style.background = "rgba(245, 167, 33, 0.5)";
-  }, duration * 1000 * 0.75);
+  // Only schedule if actively running
+  if (isRunning) {
+    // 75% elapsed → orange
+    colorTimeouts.push(
+      setTimeout(() => {
+        glassCard.style.background = "rgba(245, 167, 33, 0.5)";
+      }, duration * 1000 * 0.75)
+    );
 
-  // 100% elapsed → red
-  setTimeout(() => {
-    glassCard.style.background = "rgba(246, 96, 82, 0.5)";
-  }, duration * 1000);
+    // 100% elapsed → red
+    colorTimeouts.push(
+      setTimeout(() => {
+        glassCard.style.background = "rgba(246, 96, 82, 0.5)";
+      }, duration * 1000)
+    );
+  }
 }
 
 function setDuration(seconds) {
@@ -76,8 +88,8 @@ tabs.forEach((tab) => {
     const duration = parseInt(tab.dataset.duration, 10);
     setDuration(duration);
 
-    if (duration === 1800) titleEl.textContent = "Research Time...";
-    else if (duration === 180) titleEl.textContent = "Speaking Time...";
+    const newTitle = tab.dataset.title ?? tab.textContent.trim();
+    if (newTitle) titleEl.textContent = newTitle;
   });
 });
 
