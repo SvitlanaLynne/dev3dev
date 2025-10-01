@@ -1,8 +1,10 @@
+// countdown.js (green-optimized)
 let countdownInterval;
 let remainingSeconds = 0;
 let isRunning = false;
 let totalDuration = 0;
 let colorTimeouts = [];
+let endTime = null;
 
 const glassCard = document.querySelector(".glass-card");
 const hoursEl = document.getElementById("hours");
@@ -16,53 +18,66 @@ function formatTime(num) {
   return num.toString().padStart(2, "0");
 }
 
+function renderTimeDisplay(hrs, mins, secs) {
+  // update only when value changes to reduce paints
+  if (hoursEl.textContent !== formatTime(hrs)) {
+    hoursEl.textContent = formatTime(hrs);
+  }
+  if (minutesEl.textContent !== formatTime(mins)) {
+    minutesEl.textContent = formatTime(mins);
+  }
+  if (secondsEl.textContent !== formatTime(secs)) {
+    secondsEl.textContent = formatTime(secs);
+  }
+}
+
 function updateDisplay() {
   const hrs = Math.floor(remainingSeconds / 3600);
   const mins = Math.floor((remainingSeconds % 3600) / 60);
   const secs = remainingSeconds % 60;
-
-  hoursEl.textContent = formatTime(hrs);
-  minutesEl.textContent = formatTime(mins);
-  secondsEl.textContent = formatTime(secs);
+  renderTimeDisplay(hrs, mins, secs);
 }
 
 function startCountdown() {
   clearInterval(countdownInterval);
-  updateDisplay();
   totalDuration = remainingSeconds;
+  endTime = Date.now() + remainingSeconds * 1000;
 
   scheduleColorChanges(totalDuration);
+  updateDisplay();
 
   countdownInterval = setInterval(() => {
-    if (remainingSeconds > 0) {
-      remainingSeconds--;
+    const diff = Math.round((endTime - Date.now()) / 1000);
+    const newRemaining = Math.max(0, diff);
+
+    if (newRemaining !== remainingSeconds) {
+      remainingSeconds = newRemaining;
       updateDisplay();
-    } else {
+    }
+
+    if (remainingSeconds <= 0) {
       clearInterval(countdownInterval);
       isRunning = false;
       toggleBtn.textContent = "Reset";
     }
-  }, 1000);
+  }, 1000); // only once per second
 }
 
 function scheduleColorChanges(duration) {
-  // Clear previous timeouts
   colorTimeouts.forEach(clearTimeout);
   colorTimeouts = [];
 
-  // Reset immediately
   glassCard.style.background = "rgba(255, 255, 255, 0.15)";
 
-  // Only schedule if actively running
   if (isRunning) {
-    // 75% elapsed → orange
+    const now = Date.now();
+
     colorTimeouts.push(
       setTimeout(() => {
         glassCard.style.background = "rgba(245, 167, 33, 0.5)";
       }, duration * 1000 * 0.75)
     );
 
-    // 100% elapsed → red
     colorTimeouts.push(
       setTimeout(() => {
         glassCard.style.background = "rgba(246, 96, 82, 0.5)";
@@ -73,6 +88,9 @@ function scheduleColorChanges(duration) {
 
 function setDuration(seconds) {
   clearInterval(countdownInterval);
+  colorTimeouts.forEach(clearTimeout);
+  colorTimeouts = [];
+
   remainingSeconds = seconds;
   updateDisplay();
   isRunning = false;
@@ -119,7 +137,7 @@ if (initialTab) {
 // Auto-start Fridays at 8 AM
 function scheduleFridayCountdown() {
   const now = new Date();
-  const day = now.getDay(); // 0 = Sunday, 5 = Friday
+  const day = now.getDay();
   const hours = now.getHours();
   const minutes = now.getMinutes();
   const seconds = now.getSeconds();
