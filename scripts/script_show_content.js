@@ -35,7 +35,7 @@ function showContent(contentId) {
   media.forEach((el) => el.remove());
 
   // Define media directory
-  const directory = `../full_stack_portfolio_media/${contentId}/`; // use a unified folder
+  const directory = `../full_stack_portfolio_images/${contentId}/`;
 
   // Helper: convert Blob to URL
   function readFile(file) {
