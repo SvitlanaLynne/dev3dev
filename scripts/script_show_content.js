@@ -1,48 +1,43 @@
 function showContent(contentId) {
-  // Hiding all content
+  // Hiding all content divs
   const contents = document.querySelectorAll('div[id^="content"]');
   contents.forEach((content) => (content.style.display = "none"));
 
-  // show all
+  // Show the selected content div
   const content = document.getElementById(contentId);
+  if (!content) {
+    console.error("Missing content container:", contentId);
+    return;
+  }
   content.style.display = "flex";
 
-  // Delete previously attached paragraphs
-  while (content.firstChild) {
-    content.removeChild(content.firstChild);
-  }
+  // Clear previous content
+  while (content.firstChild) content.removeChild(content.firstChild);
 
-  // Reading paragraph from a file
+  // Load text description
   fetch(`../full_stack_portfolio_description/${contentId}.txt`)
     .then((response) => response.text())
     .then((data) => {
-      const pTagArr = data.split(/\r?\n/);
-
-      for (let i = 0; i < pTagArr.length; i++) {
+      const lines = data.split(/\r?\n/);
+      lines.forEach((line) => {
         const p = document.createElement("p");
-        p.innerHTML = pTagArr[i];
-        p.id = `${contentId}`;
+        p.innerHTML = line;
         content.appendChild(p);
-      }
+      });
     });
 
-  // Scroll to the paragraph corresponding to contentId
+  // Scroll into view
   content.scrollIntoView({ behavior: "smooth" });
-  setTimeout(() => {
-    window.scrollBy({ top: 20, behavior: "smooth" });
-  }, 50);
+  setTimeout(() => window.scrollBy({ top: 20, behavior: "smooth" }), 50);
 
-  // Deleting previously attached images
-  const images = content.getElementsByTagName("img");
-  while (images.length > 0) {
-    // Loop until all images are removed
-    content.removeChild(images[0]); // Remove the first image element from the div
-  }
+  // Remove previously attached images/videos
+  const media = content.querySelectorAll("img, video");
+  media.forEach((el) => el.remove());
 
-  // Define the directory containing the images
-  const directory = `../full_stack_portfolio_images/${contentId}/`;
+  // Define media directory
+  const directory = `../full_stack_portfolio_media/${contentId}/`; // use a unified folder
 
-  // Define a function to read the contents of a file
+  // Helper: convert Blob to URL
   function readFile(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -52,26 +47,44 @@ function showContent(contentId) {
     });
   }
 
-  // Fetch the list of files in the directory
+  // Fetch media files
   fetch(directory)
     .then((response) => response.text())
     .then((text) => {
-      // Parse the HTML response to extract the file names
       const parser = new DOMParser();
       const html = parser.parseFromString(text, "text/html");
+
+      // Filter supported files
       const fileLinks = Array.from(html.querySelectorAll("a"))
         .map((a) => a.href)
-        .filter((href) => href.endsWith(".jpg"));
+        .filter(
+          (href) =>
+            href.endsWith(".jpg") ||
+            href.endsWith(".png") ||
+            href.endsWith(".mp4")
+        );
 
-      // Load and display each image.
+      // Load each file and create proper element
       fileLinks.forEach(async (link) => {
         const filename = link.split("/").pop();
-        const file = await fetch(link).then((response) => response.blob());
-        const dataUrl = await readFile(file);
-        const img = document.createElement("img");
-        img.src = dataUrl;
-        img.alt = filename;
-        content.appendChild(img);
+        const file = await fetch(link).then((res) => res.blob());
+        const url = URL.createObjectURL(file);
+
+        if (filename.endsWith(".mp4")) {
+          const video = document.createElement("video");
+          video.src = url;
+          video.controls = true;
+          video.width = 640; // optional
+          video.height = 360; // optional
+          video.alt = filename;
+          content.appendChild(video);
+        } else {
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = filename;
+          img.style.maxWidth = "100%";
+          content.appendChild(img);
+        }
       });
     });
 }

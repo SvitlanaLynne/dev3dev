@@ -126,6 +126,12 @@ nav > span {
   /* outline: #f5a721 solid 3px; */
 }
 
+#Title span:nth-child(2) {
+  font-size: 80%;
+  line-height: 1;
+  margin: 0 1rem;
+}
+
 #gifImage {
   position: absolute;
   top: 0%;
@@ -179,6 +185,8 @@ nav > span {
 /* ABOUT */
 .section_title {
   font-size: var(--enlarged-font);
+  margin-bottom: 2rem;
+  /* outline: #e1f274 solid 3px; */
 }
 
 .large_text {
@@ -195,8 +203,6 @@ nav > span {
 #aboutMe__container {
   display: flex;
   flex-direction: column;
-  /* height: 100vh; */
-  /* margin-top: 1%; */
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5%;
@@ -229,11 +235,11 @@ nav > span {
   display: block;
   font-weight: bold;
   font-size: var(--default-font-size);
-  margin: 1rem 0;
+  margin: 2rem 0;
+  /* outline: #21d5c0 solid 3px; */
 }
 
 #about_intro p {
-  /* margin: 1rem 0 2rem 0; */
   margin-bottom: 1rem;
   /* outline: #bad521 solid 3px; */
 }
@@ -241,8 +247,8 @@ nav > span {
 #about_main {
   display: flex;
   align-items: center;
-
   margin-bottom: 2%;
+  /* outline: #a76ac6 solid 3px; */
 }
 
 #about_main > img {
@@ -274,17 +280,9 @@ nav > span {
   line-height: 2rem;
   width: 100%;
   margin-bottom: 5rem;
+  box-shadow: 0 0 10px 0 rgba(59, 59, 61, 0.15);
+  background: linear-gradient(to bottom, transparent, var(--light-grey));
   /* outline: #f57621 solid 3px; */
-}
-
-#testimonials > span {
-  font-style: normal;
-  font-weight: lighter;
-
-  font-size: var(--enlarged-font);
-  /* line-height: 2.5rem; */
-  color: var(--deep-yellow);
-  margin-bottom: 2rem;
 }
 
 #testimonials_block {
@@ -292,16 +290,9 @@ nav > span {
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-flow: row;
   grid-gap: 2rem;
-  margin: 0 5%;
+  margin: 0 4%;
   /* outline: #acabfd solid 3px; */
 }
-/* .separator-line {
-  width: clamp(30%, 40%, 50%);
-  height: 1px;
-  margin: 0 auto;
-  background: var(--yellow);
-  margin-bottom: 1rem;
-} */
 
 #testimonials_block > * {
   display: flex;
@@ -333,11 +324,20 @@ nav > span {
 [id*="testimonial"] {
   font-style: italic;
 }
-[id*="testimonial"] > span {
+.small-bold {
   display: block;
-  margin: auto;
+  margin: 2rem auto;
+  line-height: 1.5;
   font-style: normal;
   font-weight: bold;
+  text-align: center;
+  /* outline: #5492a4 1px solid; */
+}
+
+.small-bold > span {
+  font-size: var(--default-font-size);
+  color: var(--deep-yellow);
+  margin-left: 0.5rem;
 }
 
 #about_education {
@@ -507,11 +507,11 @@ nav > span {
   nav {
     width: 80%;
   }
-  #Title {
-    font-size: calc(var(--default-font-size) * 2.5);
-  }
   #gifContainer {
     height: 300px;
+  }
+  #Title {
+    font-size: calc(var(--default-font-size) * 2.5);
   }
 
   #gifImage {

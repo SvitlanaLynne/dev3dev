@@ -68,24 +68,39 @@ nav {
 nav > span {
   font-weight: bold;
 }
-
 #image_block {
   width: 90%;
   display: flex;
+  justify-content: center;
   align-items: center;
   /* outline: #f66052 1px solid; */
 }
 
-#image_block > img {
-  max-width: 15%;
+#image_block .row_block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#image_block .text_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#image_block img {
+  max-width: 30%;
   margin: 5%;
 }
 
-#image_block > span {
+#image_block span {
   font-size: var(--enlarged-font);
   font-weight: bold;
   color: var(--dark-grey);
   line-height: var(--line-height);
+  margin-bottom: 1rem;
+  /* outline: #35c721 1px solid; */
 }
 
 a:link,
@@ -102,15 +117,19 @@ a[href*="mailto"] {
   margin: auto;
   font-size: var(--enlarged-font-size);
   text-decoration: underline;
+
+  /* outline: #f66052 1px solid; */
 }
 
 address {
   display: flex;
   justify-content: space-around;
-
   width: 80%;
+  padding: 1rem;
   margin: 10% 0;
-  /* outline: #f66052 1px solid; */
+  background: linear-gradient(to bottom, transparent, var(--light-grey));
+  box-shadow: 0px 5px 5px 0px rgba(59, 59, 61, 0.15);
+  /* outline: #101010 6px solid; */
 }
 
 /* Tablets (medium screens) */
