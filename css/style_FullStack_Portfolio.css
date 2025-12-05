@@ -132,6 +132,7 @@ a:hover {
     rgba(255, 255, 255, 0)
   );
   transition: height 0.4s ease;
+  /* outline: 2px solid rgb(24, 37, 180); */
 }
 
 .overlay h2 {
@@ -141,10 +142,15 @@ a:hover {
 }
 
 .TitleLinkGroup {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 40% 0;
+  width: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  /* outline: 2px solid rgb(26, 164, 214); */
 }
 
 .TitleLinkGroup h2 {
@@ -211,16 +217,10 @@ a:hover {
   nav {
     width: 30%;
   }
-  body {
-    font-size: var(--default-font-size);
-  }
 }
 
 /* Tablets (medium screens) */
 @media (min-width: 601px) and (max-width: 1024px) {
-  body {
-    font-size: var(--default-font-size);
-  }
   nav {
     width: 50%;
   }
@@ -239,9 +239,6 @@ a:hover {
 
 /* Mobile devices (small screens) */
 @media (max-width: 600px) {
-  body {
-    font-size: var(--smaller-font-size);
-  }
   nav {
     width: 80%;
   }
