@@ -139,6 +139,7 @@ nav > span {
   height: 100%;
   background-image: url("/images/animated_bg.gif");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   opacity: 1;
   z-index: 1;
@@ -326,6 +327,7 @@ nav > span {
 }
 .small-bold {
   display: block;
+  width: 80%;
   margin: 2rem auto;
   line-height: 1.5;
   font-style: normal;
@@ -363,6 +365,7 @@ nav > span {
 
 #education_container {
   display: contents;
+  outline: #9152f6 4px solid;
 }
 
 .education_block {
@@ -370,32 +373,26 @@ nav > span {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  align-self: center;
+  text-align: center;
   padding: 0.5rem;
 }
 
 .education_block :nth-child(1) {
-  align-self: center;
-  text-align: center;
   color: var(--dark-blue);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   z-index: 2;
   /* outline: #5492a4 1px solid; */
 }
 
 .education_block :nth-child(2) {
   font-weight: bold;
-  align-self: center;
-  text-align: center;
   /* outline: #5492a4 1px solid; */
 }
 
 .education_block p {
+  font-size: calc(0.875 * var(--default-font-size));
   font-style: italic;
-}
-
-.education_block :last-child {
-  /* font-size: 0.9rem; */
-  align-self: end;
 }
 
 /* SKILLS */
@@ -484,39 +481,41 @@ nav > span {
   nav {
     width: 30%;
   }
-  body {
-    font-size: var(--default-font-size);
-  }
 }
 
 /* Tablets (medium screens) */
 @media (min-width: 601px) and (max-width: 1024px) {
-  body {
-    font-size: var(--default-font-size);
-  }
   nav {
     width: 50%;
+  }
+  #Title {
+    font-size: calc(var(--default-font-size) * 3);
+  }
+  .large_text {
+    font-size: calc(var(--default-font-size) * 1.75);
+  }
+
+  .section_title {
+    font-size: var(--default-font-size);
   }
 }
 
 /* Mobile devices (small screens) */
 @media (max-width: 600px) {
-  body {
-    font-size: var(--smaller-font-size);
-  }
   nav {
-    width: 80%;
+    width: 90%;
   }
+
   #gifContainer {
     height: 300px;
   }
   #Title {
-    font-size: calc(var(--default-font-size) * 2.5);
+    font-size: calc(var(--default-font-size) * 2);
+  }
+  .large_text {
+    font-size: calc(var(--default-font-size) * 1.5);
   }
 
-  #gifImage {
-    left: -30%;
-  }
   #aboutMe__container {
     display: flex;
     flex-direction: column;
@@ -531,6 +530,10 @@ nav > span {
     max-width: 40%;
     height: auto;
     align-self: center;
+    margin-bottom: 1rem;
+  }
+  .section_title {
+    font-size: var(--default-font-size);
   }
 
   #testimonials_block {

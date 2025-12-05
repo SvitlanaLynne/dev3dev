@@ -6,4 +6,4 @@ To build MealTime, I used React and tested the functionality using _json-server_
 
 Overall, MealTime is a simple and effective solution _for tracking the feeding or watering habits_ of your loved ones or plants. Whether you're a busy parent, pet owner, or plant enthusiast, MealTime is an excellent tool to help you stay organized and on top of your daily routine.
 
-This project **on GitHub:** https://github.com/SvitlanaLynne/MealTime-App
+This project **on GitHub:** <a href="https://github.com/SvitlanaLynne/MealTime-App" target="blank">Open on GitHub</a>

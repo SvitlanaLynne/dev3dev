@@ -10,4 +10,4 @@ Our **team of 4 developers** worked together to create UrNext, and my specific r
 
 Working with such a strong and efficient team was a great pleasure, and within the limited time we had, we were able to develop all the necessary components. We have many ideas for future improvements, and this first version of UrNext is just the beginning of our journey!
 
-This project **on GitHub:** https://github.com/Ur-Next/Ur-Next
+This project **on GitHub:** <a href="https://github.com/Ur-Next/Ur-Next" target="blank">Open on GitHub</a>
