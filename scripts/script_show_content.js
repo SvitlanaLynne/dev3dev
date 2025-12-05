@@ -1,9 +1,9 @@
 function showContent(contentId) {
-  // Hiding all content divs
+  // Hide all content divs
   const contents = document.querySelectorAll('div[id^="content"]');
   contents.forEach((content) => (content.style.display = "none"));
 
-  // Show the selected content div
+  // Show selected content
   const content = document.getElementById(contentId);
   if (!content) {
     console.error("Missing content container:", contentId);
@@ -14,16 +14,37 @@ function showContent(contentId) {
   // Clear previous content
   while (content.firstChild) content.removeChild(content.firstChild);
 
-  // Load text description
-  fetch(`../full_stack_portfolio_description/${contentId}.txt`)
+  // Basic markdown → HTML converter
+  function mdToHtml(md) {
+    // dot-list grouping (· or • or .)
+    md = md.replace(/(^[ \t]*[•·.]\s+.*(\n[ \t]*[•·.]\s+.*)*)/gim, (block) => {
+      const items = block
+        .split("\n")
+        .map((line) => line.replace(/^[ \t]*[•·.]\s+(.*)/, "<li>$1</li>"))
+        .join("\n");
+      return `<ul>${items}</ul>`;
+    });
+
+    return md
+      .replace(/\n\s*\n/g, "<br><br>")
+      .replace(/^### (.*$)/gim, "<h3>$1</h3>")
+      .replace(/^## (.*$)/gim, "<h2>$1</h2>")
+      .replace(/^# (.*$)/gim, "<h1>$1</h1>")
+      .replace(/\*\*(.*?)\*\*/gim, "<strong>$1</strong>")
+      .replace(/\*(.*?)\*/gim, "<em>$1</em>")
+      .replace(/_(.+?)_/g, "<em>$1</em>")
+      .replace(/`([^`]+)`/gim, "<code>$1</code>")
+      .replace(/\n$/gim, "<br>");
+  }
+
+  // Load markdown description
+  fetch(`../full_stack_portfolio_description/${contentId}.md`)
     .then((response) => response.text())
-    .then((data) => {
-      const lines = data.split(/\r?\n/);
-      lines.forEach((line) => {
-        const p = document.createElement("p");
-        p.innerHTML = line;
-        content.appendChild(p);
-      });
+    .then((markdown) => {
+      const html = mdToHtml(markdown);
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = html;
+      content.appendChild(wrapper);
     });
 
   // Scroll into view
@@ -34,10 +55,10 @@ function showContent(contentId) {
   const media = content.querySelectorAll("img, video");
   media.forEach((el) => el.remove());
 
-  // Define media directory
+  // Media directory
   const directory = `../full_stack_portfolio_images/${contentId}/`;
 
-  // Helper: convert Blob to URL
+  // Helper: convert Blob → URL
   function readFile(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -54,7 +75,6 @@ function showContent(contentId) {
       const parser = new DOMParser();
       const html = parser.parseFromString(text, "text/html");
 
-      // Filter supported files
       const fileLinks = Array.from(html.querySelectorAll("a"))
         .map((a) => a.href)
         .filter(
@@ -64,7 +84,6 @@ function showContent(contentId) {
             href.endsWith(".mp4")
         );
 
-      // Load each file and create proper element
       fileLinks.forEach(async (link) => {
         const filename = link.split("/").pop();
         const file = await fetch(link).then((res) => res.blob());

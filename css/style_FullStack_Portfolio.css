@@ -183,19 +183,19 @@ a:hover {
 .hidden-content {
   margin-top: 2rem;
   margin-bottom: 2rem;
-
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* outline: 2px solid rgb(56, 221, 34); */
+  /* outline: 2px solid rgb(191, 21, 206); */
 }
 
 .hidden-content img {
   display: block;
+  width: 100%;
   max-width: 1000px;
   height: auto;
-  padding: 1rem;
   margin-top: 1.5rem;
   margin-left: auto;
   margin-right: auto;
@@ -232,8 +232,11 @@ a:hover {
     font-size: 85%;
   }
   .hidden-content img {
-    padding: 0.5rem;
     max-width: 90%;
+  }
+  .hidden-content video {
+    max-width: 100%;
+    margin: 1rem auto;
   }
 }
 
@@ -243,15 +246,13 @@ a:hover {
     width: 80%;
   }
   .overlay h2 {
-    font-size: 75%;
+    font-size: 70%;
   }
   .TitleLinkGroup a {
     font-size: 75%;
   }
   .hidden-content img {
-    padding: 0.25rem;
     width: 100%;
-    max-width: 100%;
   }
   .hidden-content video {
     max-width: 100%;

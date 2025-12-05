@@ -1,3 +1,0 @@
-Built with: React
-This project on GitHub: <a href="https://github.com/SvitlanaLynne/Flowers-OnlineShop" target="blank">Open on GitHub</a> 
-"Flowers" is a simple yet functional online shop. Browse through product listings, apply filters, and enjoy the convenience of sorting features. It includes key functionality such as fetching product data, routing, and more. Design was not developed for this project, it showcases the functionality only, so basic css and sample images were implemented. One of the key features of this project is the simulation of a database with json-server and bulk import data from a file.

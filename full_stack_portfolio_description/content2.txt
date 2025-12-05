@@ -1,5 +1,0 @@
-Built with: React
-This project on GitHub: https://github.com/SvitlanaLynne/MealTime-App
-MealTime is a user-friendly web application that allows you to track the time when you fed your child, pet, or watered a plant. I created this application because I wanted a quick and easy way to keep regular notes without having to use a pen and paper or type a lot of information into a standard note-taking application. The application is specifically designed to allow you to enter minimal data quickly and conveniently view the information on a daily basis.
-To build MealTime, I used React and tested the functionality using json-server. Additionally, the application features a login system, which allows multiple users to utilize the application. Throughout the development process, I gained valuable experience working with the current date as both an input and the displayed data.
-Overall, MealTime is a simple and effective solution for tracking the feeding or watering habits of your loved ones or plants. Whether you're a busy parent, pet owner, or plant enthusiast, MealTime is an excellent tool to help you stay organized and on top of your daily routine.
