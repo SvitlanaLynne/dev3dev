@@ -74,15 +74,12 @@ function showContent(contentId) {
           const video = document.createElement("video");
           video.src = url;
           video.controls = true;
-          video.width = 640; // optional
-          video.height = 360; // optional
           video.alt = filename;
           content.appendChild(video);
         } else {
           const img = document.createElement("img");
           img.src = url;
           img.alt = filename;
-          img.style.maxWidth = "100%";
           content.appendChild(img);
         }
       });

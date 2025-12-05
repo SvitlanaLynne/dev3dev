@@ -1,0 +1,23 @@
+# Node / JS / general
+node_modules/
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Media files (videos)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.flv
+
+# Optional: images too, if you want to exclude
+# *.jpg
+# *.png

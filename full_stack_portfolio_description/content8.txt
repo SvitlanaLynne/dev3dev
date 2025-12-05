@@ -2,7 +2,7 @@
 
 <p>In November 2025, I tested several of them to see what’s realistic for small teams or startups.</p>
 
-<hr />
+&emsp;
 
 <p><strong>Clear goal:</strong> evaluate capabilities and limitations of video generators by producing content with specific requirements.</p>
 
@@ -10,21 +10,19 @@
 
 <p>I aimed to generate a <strong>digital twin</strong> to see how well the tools could reproduce likeness, with a few specific requirements:</p>
 
-<ol>
-  <li>keep everything as is from the reference photo</li>
-  <li>make one specific change, such as adding a white jacket with black buttons</li>
-  <li>make the character speak — I was curious how well the tools would render emotion and lip-sync</li>
-</ol>
+<p>• keep everything as is from the reference photo</p> <p>• make one specific change, such as adding a white jacket with black buttons</p> <p>• make the character speak — I was curious how well the tools would render emotion and lip-sync</p>
+
+&emsp;
 
 <p><strong>Constraints:</strong></p>
 
-<ul>
-  <li><em>Time</em>: 1 working day</li>
-  <li><em>Budget</em>: 2–3 tools, basic plans</li>
-  <li><em>Input</em>: images only, no video</li>
-</ul>
+<p><em>Time</em>: 1 working day</p> <p><em>Budget</em>: 2–3 tools, basic plans</p> <p><em>Input</em>: images only, no video</p>
+
+&emsp;
 
 <p>Well, as you can see, the lady does resemble me...</p>
+
+&emsp;
 
 <p><strong>Midjourney</strong> did a great job preserving everything and adding a jacket. It struggled with the buttons — their number, color, and shape kept ignoring my prompts. I could have paused here to fix it manually in Photoshop, but I left it as is to demonstrate the tool’s limitations.</p>
 
@@ -32,22 +30,25 @@
 
 <p><strong>Nano Banana</strong> pleasantly surprised me — a powerful tool, although it refused to “add the jacket,” perhaps focusing on keeping everything as is.</p>
 
+&emsp;
+
 <p><em>A tip:</em> for higher-quality output, upscale your reference images throughout the workflow.</p>
+
+&emsp;
 
 <p><strong>Real scope of the work:</strong></p>
 
-<p><em>Time:</em> ~0.7 working day</p>
+
+<p><em>Time:</em> ~ 0.7 working day</p>
 
 <p><em>Cost:</em></p>
 
-<ol>
-  <li>Midjourney — $30</li>
-  <li>Nano Banana — $10</li>
-  <li>Veo 3 — $27 (1st month free)</li>
-</ol>
+<p>• Midjourney — $30</p> <p>• Nano Banana — $10</p> <p>• Veo 3 — $27 (1st month free)</p>
 
-<hr />
+&emsp;
 
 <p>This and other experiments with video generators — Synthesia, HeyGen, StudioAi, Sora, Klink, Haulio, Runway — were so immersive that I could easily spend more time playing with the features and techniques, and beyond their business use, they could be a great hobby for anyone!</p>
 
 <p>Things are improving faster than we may assume, so these limitations won’t last — content creators will soon spend less and less time bringing amazing stories to life with modern tools.</p>
+
+&emsp;
