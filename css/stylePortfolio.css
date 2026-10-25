@@ -100,6 +100,22 @@ p {
   align-items: center;
 }
 
+.Gallery_block p .amp {
+  font-size: 0.75em;
+}
+
+.Gallery_block a.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+.coming_soon {
+  margin-top: 0.5rem;
+  font-style: italic;
+  font-size: var(--font-14);
+}
+
 /* .Gallery_block a
 {
     text-decoration: underline;
